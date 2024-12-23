@@ -49,7 +49,7 @@
         body {
             background-color: black;
             color: #33CC33; /* Softer green color */
-            font-family: 'Roboto', sans-serif; font-weight: 400;
+            font-family: 'Roboto', sans-serif;
             text-shadow: 0 0 5px #33CC33;
             font-size: 1.2rem;
         }
@@ -122,6 +122,9 @@
             font-size: 1.5rem;
             margin-bottom: 10px; /* Reduced the margin to bring the robot closer */
         }
+        .hero p span {
+            text-decoration: underline; /* Underlines "Community Solar" */
+        }
         .hero img {
             width: 400px;
             margin-top: -20px; /* Adjusted to reduce the gap further */
@@ -146,6 +149,7 @@
             font-family: 'Kenyan Coffee', sans-serif;
             font-size: 2rem;
             margin-bottom: 20px;
+            font-weight: normal; /* Removes bold */
         }
 
         .signup-form {
@@ -245,28 +249,26 @@
             font-size: 2rem;
             margin-bottom: 20px;
             font-family: 'Kenyan Coffee', sans-serif;
+            font-weight: normal; /* Removes bold */
         }
         .faq-item {
             border: 2px dashed #33CC33;
             border-radius: 10px;
             margin-bottom: 15px;
             padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
         }
-        .faq-item .faq-header {
+        .faq-header {
             display: flex;
             justify-content: space-between;
-            width: 100%;
+            align-items: center;
+            cursor: pointer;
         }
         .faq-question {
             font-size: 1.5rem;
-            cursor: pointer;
         }
-        .faq-plus {
+        .faq-toggle {
             font-size: 2rem;
             font-weight: bold;
             color: #33CC33;
@@ -274,10 +276,9 @@
         .faq-answer {
             display: none;
             font-size: 1.2rem;
-            padding: 10px;
-            margin-top: 10px;
+            padding-top: 10px;
         }
-        .faq-question:hover {
+        .faq-header:hover .faq-question {
             color: #2EB82E;
         }
 
@@ -286,9 +287,29 @@
             text-align: center;
             padding: 20px;
             border-top: 1px dashed #33CC33;
-            font-family: 'Kenyan Coffee', sans-serif;
-            font-size: 1.2rem;
+            font-family: 'Roboto', sans-serif; /* Change font to Roboto */
+            font-weight: lighter;
+            font-size: medium;
+            
         }
+
+        footer a {
+            color: #33CC33;
+            text-decoration: underline; /* Add underline for better visibility */
+            font-weight: lighter;
+        }
+
+        footer a:hover {
+            color: #2EB82E; /* Slightly lighter green on hover */
+        }
+
+        footer .copyright {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #33CC33;
+            text-shadow: none; /* Remove text shadow for better clarity */
+        }
+
         .copyright {
             margin-top: 10px;
             font-size: 1rem;
@@ -322,7 +343,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>Welcome to the Future of Energy.</h1>
-        <p>Community Solar is easy, free, and saves you 10% every month.</p>
+        <p><span>Community Solar</span> is easy, free, and saves you 10% every month.</p>
         <img src="Atlas Website Robot 2_6.png" alt="Retro Robot">
 
         <!-- Signup Section -->
@@ -347,35 +368,35 @@
         <div class="faq-item">
             <div class="faq-header">
                 <div class="faq-question">What is Atlas Energi?</div>
-                <div class="faq-plus">+</div>
+                <div class="faq-toggle">+</div>
             </div>
             <div class="faq-answer">Atlas Energi provides clean energy while saving you money on your monthly energy bills.</div>
         </div>
         <div class="faq-item">
             <div class="faq-header">
                 <div class="faq-question">How does it save me money?</div>
-                <div class="faq-plus">+</div>
+                <div class="faq-toggle">+</div>
             </div>
             <div class="faq-answer">By optimizing your energy use, we ensure you save 10% without changing your habits.</div>
         </div>
         <div class="faq-item">
             <div class="faq-header">
                 <div class="faq-question">Is it really free to join?</div>
-                <div class="faq-plus">+</div>
+                <div class="faq-toggle">+</div>
             </div>
             <div class="faq-answer">Yes! Joining Atlas Energi is completely free with no hidden costs.</div>
         </div>
         <div class="faq-item">
             <div class="faq-header">
                 <div class="faq-question">Can I cancel anytime?</div>
-                <div class="faq-plus">+</div>
+                <div class="faq-toggle">+</div>
             </div>
             <div class="faq-answer">Yes, you can cancel at any time with no penalty.</div>
         </div>
         <div class="faq-item">
             <div class="faq-header">
                 <div class="faq-question">How do I sign up?</div>
-                <div class="faq-plus">+</div>
+                <div class="faq-toggle">+</div>
             </div>
             <div class="faq-answer">Simply click the "Join" button and follow the instructions to sign up easily.</div>
         </div>
@@ -399,14 +420,24 @@
 
     <!-- Script for FAQs and Email Persistence -->
     <script>
-        const faqItems = document.querySelectorAll('.faq-item');
-
-        faqItems.forEach(item => {
+        document.querySelectorAll('.faq-item').forEach(item => {
             const header = item.querySelector('.faq-header');
             const answer = item.querySelector('.faq-answer');
+            const toggle = item.querySelector('.faq-toggle');
+
             header.addEventListener('click', () => {
                 const isVisible = answer.style.display === 'block';
-                answer.style.display = isVisible ? 'none' : 'block';
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
+                document.querySelectorAll('.faq-toggle').forEach(tog => tog.textContent = '+');
+
+                if (!isVisible) {
+                    answer.style.display = 'block';
+                    toggle.textContent = 'x';
+                } else {
+                    answer.style.display = 'none';
+                    toggle.textContent = '+';
+                }
             });
         });
 
