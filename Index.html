@@ -61,6 +61,10 @@
             }
             .hero h1 {
                 font-size: 2.5rem;
+                white-space: normal;
+                overflow: visible;
+                border: none;
+                animation: none;
             }
             .hero p {
                 font-size: 1.2rem;
@@ -199,7 +203,7 @@
 
         /* Hero Section */
         .hero {
-            height: 90vh;
+            height: auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -210,18 +214,6 @@
             margin-bottom: 10px;
             font-size: 4rem;
             font-family: 'Kenyan Coffee', sans-serif;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 0.15em solid #33CC33;
-            animation: typing 3s steps(40, end) forwards, blink 0.7s step-end infinite;
-            display: inline-block;
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 26ch; }
-        }
-        @keyframes blink {
-            50% { border-color: transparent; }
         }
 
         .hero p {
@@ -529,7 +521,7 @@
         const faqHeaders = document.querySelectorAll(".faq-header");
 
         faqHeaders.forEach(header => {
-            header.addEventListener("click", () => {
+            header.addEventListener
                 const answer = header.nextElementSibling;
                 const toggle = header.querySelector(".faq-toggle");
 
@@ -541,7 +533,6 @@
                     toggle.textContent = "-";
                 }
             });
-        });
     </script>
 </body>
 </html>
