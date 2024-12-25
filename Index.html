@@ -158,7 +158,7 @@
         /* Body Styling */
         body {
             background-color: black;
-            color: #33CC33;
+            color: #33CC33; /* Softer green color */
             font-family: 'Roboto', sans-serif;
             text-shadow: 0 0 5px #33CC33;
             font-size: 1.2rem;
@@ -214,18 +214,21 @@
             margin-bottom: 10px;
             font-size: 4rem;
             font-family: 'Kenyan Coffee', sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid #33CC33;
         }
 
         .hero p {
             font-size: 1.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Reduced the margin to bring the robot closer */
         }
         .hero p span {
-            text-decoration: underline;
+            text-decoration: underline; /* Underlines "Community Solar" */
         }
         .hero img {
             width: 400px;
-            margin-top: -20px;
+            margin-top: -20px; /* Adjusted to reduce the gap further */
             animation: glow 1.5s infinite alternate;
         }
         @keyframes glow {
@@ -239,7 +242,7 @@
 
         .signup-section {
             margin-top: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 30px; /* Added margin-bottom to create space from the footer */
             text-align: center;
         }
 
@@ -247,7 +250,7 @@
             font-family: 'Kenyan Coffee', sans-serif;
             font-size: 2rem;
             margin-bottom: 20px;
-            font-weight: normal;
+            font-weight: normal; /* Removes bold */
         }
 
         .signup-form {
@@ -347,7 +350,7 @@
             font-size: 2rem;
             margin-bottom: 20px;
             font-family: 'Kenyan Coffee', sans-serif;
-            font-weight: normal;
+            font-weight: normal; /* Removes bold */
         }
         .faq-item {
             border: 2px dashed #33CC33;
@@ -385,26 +388,26 @@
             text-align: center;
             padding: 20px;
             border-top: 1px dashed #33CC33;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', sans-serif; /* Change font to Roboto */
             font-size: medium;
             font-weight: lighter;
         }
 
-        footer a {
+            footer a {
             color: #33CC33;
-            text-decoration: underline;
+            text-decoration: underline; /* Add underline for better visibility */
             font-weight: bold;
         }
 
         footer a:hover {
-            color: #2EB82E;
+            color: #2EB82E; /* Slightly lighter green on hover */
         }
 
         footer .copyright {
             margin-top: 10px;
             font-size: 0.9rem;
             color: #33CC33;
-            text-shadow: none;
+            text-shadow: none; /* Remove text shadow for better clarity */
         }
 
         .copyright {
@@ -416,9 +419,9 @@
 
         /* Browser Compatibility */
         input, button {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
+            -webkit-appearance: none; /* Remove default styling for Safari */
+            -moz-appearance: none; /* Remove default styling for Firefox */
+            appearance: none; /* Remove default styling for other browsers */
         }
     </style>
 </head>
@@ -499,7 +502,7 @@
         </div>
     </section>
 
-       <!-- Additional Signup Section -->
+    <!-- Additional Signup Section -->
     <section class="signup-section">
         <h2>Ready to join the future of energy?</h2>
         <form class="signup-form">
@@ -510,29 +513,45 @@
 
     <!-- Footer -->
     <footer>
-        <p>Questions?</p>
-        <p>Call/Text (716)229-0539 Email jonmeyers215@gmail.com</p>
+        <p>Questions? Call/Text (716)229-0539 Email jonmeyers215@gmail.com</p>
         <p><a href="#">About</a> | <a href="#">Privacy</a></p>
         <p class="copyright">&copy; 2024 Atlas Energi - All Rights Reserved</p>
     </footer>
 
     <!-- Script for FAQs and Email Persistence -->
     <script>
-        const faqHeaders = document.querySelectorAll(".faq-header");
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const header = item.querySelector('.faq-header');
+            const answer = item.querySelector('.faq-answer');
+            const toggle = item.querySelector('.faq-toggle');
 
-        faqHeaders.forEach(header => {
-            header.addEventListener
-                const answer = header.nextElementSibling;
-                const toggle = header.querySelector(".faq-toggle");
+            header.addEventListener('click', () => {
+                const isVisible = answer.style.display === 'block';
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
+                document.querySelectorAll('.faq-toggle').forEach(tog => tog.textContent = '+');
 
-                if (answer.style.display === "block") {
-                    answer.style.display = "none";
-                    toggle.textContent = "+";
+                if (!isVisible) {
+                    answer.style.display = 'block';
+                    toggle.textContent = 'x';
                 } else {
-                    answer.style.display = "block";
-                    toggle.textContent = "-";
+                    answer.style.display = 'none';
+                    toggle.textContent = '+';
                 }
             });
+        });
+
+        const emailInput = document.getElementById('email');
+        emailInput.value = localStorage.getItem('email') || '';
+        emailInput.addEventListener('input', () => {
+            localStorage.setItem('email', emailInput.value);
+        });
+
+        const emailInputFooter = document.getElementById('email-footer');
+        emailInputFooter.value = localStorage.getItem('email') || '';
+        emailInputFooter.addEventListener('input', () => {
+            localStorage.setItem('email', emailInputFooter.value);
+        });
     </script>
 </body>
 </html>
