@@ -42,44 +42,97 @@
         /* Base mobile styles for small devices */
         @media (max-width: 768px) {
             nav {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-start;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
                 padding: 10px;
             }
             nav .logo img {
-                height: 50px;
-                margin-right: 10px;
+                height: 60px;
             }
             nav a {
-                display: block;
-                text-align: right;
-                margin: 5px 0;
-                font-size: 1rem;
+                margin: 10px 0;
+                font-size: 1.2rem;
+            }
+
+            .hero {
+                height: auto; /* Allow the section to adjust height dynamically */
+                padding: 20px;
+                text-align: center;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
-                line-height: 1.2;
+                font-size: 2rem; /* Smaller font size for mobile */
+                margin-bottom: 10px;
+                white-space: normal; /* Allow text wrapping */
+                overflow: visible; /* Ensure no clipping */
+                border: none; /* Remove typing effect border for better alignment */
             }
+
             .hero p {
                 font-size: 1.2rem;
+                margin-top: 10px;
+            }
+
+            .signup-section {
+                padding: 20px;
+            }
+            .signup-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .signup-form input,
+            .signup-form button {
+                width: 100%;
+                font-size: 1rem;
+            }
+
+            .section2 {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .section2 p {
+                font-size: 1.2rem;
+            }
+            .section2 .learn-button {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .faq {
+                padding: 20px;
+            }
+            .faq h2 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            .faq-item {
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            footer {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+            footer a {
+                font-size: 0.9rem;
             }
         }
 
         /* Extra small devices like smartphones */
         @media (max-width: 480px) {
-            nav .logo img {
-                height: 40px;
-            }
-            nav a {
-                font-size: 0.9rem;
-            }
             .hero h1 {
                 font-size: 2rem;
             }
             .hero p {
+                font-size: 1rem;
+            }
+            .faq-item {
+                font-size: 0.9rem;
+            }
+            nav a {
                 font-size: 1rem;
             }
         }
@@ -152,7 +205,16 @@
             font-family: 'Kenyan Coffee', sans-serif;
             white-space: nowrap;
             overflow: hidden;
+            border-right: 0.15em solid #33CC33;
+            animation: typing 3s steps(40, end) forwards, blink 0.7s step-end infinite;
             display: inline-block;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 26ch; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
         }
 
         .hero p {
@@ -449,14 +511,30 @@
 
     <!-- Footer -->
     <footer>
-        <p>Questions? Call/Text (716)229-0539 Email jonmeyers215@gmail.com</p>
+        <p>Questions?</p>
+        <p>Call/Text (716)229-0539 Email jonmeyers215@gmail.com</p>
         <p><a href="#">About</a> | <a href="#">Privacy</a></p>
         <p class="copyright">&copy; 2024 Atlas Energi - All Rights Reserved</p>
     </footer>
 
     <!-- Script for FAQs and Email Persistence -->
     <script>
+        const faqHeaders = document.querySelectorAll(".faq-header");
 
+        faqHeaders.forEach(header => {
+            header.addEventListener("click", () => {
+                const answer = header.nextElementSibling;
+                const toggle = header.querySelector(".faq-toggle");
+
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                    toggle.textContent = "+";
+                } else {
+                    answer.style.display = "block";
+                    toggle.textContent = "-";
+                }
+            });
+        });
     </script>
 </body>
 </html>
