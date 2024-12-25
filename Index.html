@@ -56,21 +56,17 @@
             }
 
             .hero {
-                height: auto; /* Allow the section to adjust height dynamically */
+                height: auto;
                 padding: 20px;
-                text-align: center;
             }
-
             .hero h1 {
-                font-size: 2rem; /* Smaller font size for mobile */
-                margin-bottom: 10px;
-                white-space: normal; /* Allow text wrapping */
-                overflow: visible; /* Ensure no clipping */
-                border: none; /* Remove typing effect border for better alignment */
+                font-size: 2.5rem;
             }
-
             .hero p {
                 font-size: 1.2rem;
+            }
+            .hero img {
+                width: 250px;
                 margin-top: 10px;
             }
 
@@ -123,6 +119,20 @@
 
         /* Extra small devices like smartphones */
         @media (max-width: 480px) {
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav .logo {
+                margin-bottom: 10px;
+            }
+            nav a {
+                font-size: 1rem;
+                margin: 5px 0;
+                text-align: left;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -131,9 +141,6 @@
             }
             .faq-item {
                 font-size: 0.9rem;
-            }
-            nav a {
-                font-size: 1rem;
             }
         }
 
