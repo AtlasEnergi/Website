@@ -39,6 +39,100 @@
             src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
         }
 
+        /* Base mobile styles for small devices */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+    nav .logo img {
+        height: 60px; /* Adjust logo size for smaller screens */
+    }
+    nav a {
+        margin: 10px 0;
+        font-size: 1.2rem;
+    }
+
+    .hero {
+        height: auto;
+        padding: 20px;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    .hero img {
+        width: 250px;
+        margin-top: 10px;
+    }
+
+    .signup-section {
+        padding: 20px;
+    }
+    .signup-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .signup-form input,
+    .signup-form button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .section2 {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    .section2 p {
+        font-size: 1.2rem;
+    }
+    .section2 .learn-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .faq {
+        padding: 20px;
+    }
+    .faq h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .faq-item {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    footer a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small devices like smartphones */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .faq-item {
+        font-size: 0.9rem;
+    }
+    nav a {
+        font-size: 1rem;
+    }
+}
+
         /* General Reset */
         * {
             margin: 0;
