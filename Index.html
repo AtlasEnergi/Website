@@ -56,21 +56,24 @@
             }
 
             .hero h1 {
-                font-size: 2rem; /* Adjust the font size to fit mobile screens */
-                white-space: normal; /* Allow the text to wrap to the next line */
-                overflow: visible; /* Ensure the text doesn't get clipped */
-                border: none; /* Remove the typing effect border if necessary */
-                animation: none; /* Disable the typing effect for mobile */
+                font-size: 2rem; /* Smaller font size for mobile */
+                white-space: normal; /* Allow wrapping */
+                overflow: visible; /* Ensure text is not clipped */
+                border: none; /* Remove typing effect border */
+                animation: none; /* Disable typing animation for mobile */
+                display: block; /* Ensure it renders properly */
+                color: #33CC33; /* Ensure consistent color */
+                margin: 10px 0; /* Add spacing around the text */
             }
 
             .hero p {
                 font-size: 1rem; /* Adjust font size for mobile readability */
-                margin: 10px 0;
-            }
+                 margin: 10px 0; /* Add spacing */
+             }
 
             .hero {
-                padding: 20px; /* Add padding for better spacing on mobile */
-                text-align: center; /* Center align text on smaller screens */
+                padding: 20px; /* Adjust padding for mobile */
+                text-align: center; /* Center align the text */
             }
 
             .hero img {
