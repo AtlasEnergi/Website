@@ -55,16 +55,24 @@
                 font-size: 1.2rem;
             }
 
-            .hero {
-                height: auto;
-                padding: 20px;
-            }
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem; /* Adjust the font size to fit mobile screens */
+                white-space: normal; /* Allow the text to wrap to the next line */
+                overflow: visible; /* Ensure the text doesn't get clipped */
+                border: none; /* Remove the typing effect border if necessary */
+                animation: none; /* Disable the typing effect for mobile */
             }
+
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1rem; /* Adjust font size for mobile readability */
+                margin: 10px 0;
             }
+
+            .hero {
+                padding: 20px; /* Add padding for better spacing on mobile */
+                text-align: center; /* Center align text on smaller screens */
+            }
+
             .hero img {
                 width: 250px;
                 margin-top: 10px;
