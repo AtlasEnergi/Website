@@ -42,45 +42,51 @@
         /* Base mobile styles for small devices */
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 10px;
+                flex-direction: column; /* Stack tabs vertically */
+                align-items: center; /* Center-align navigation */
+                padding: 15px; /* Add padding for better spacing */
+
             }
             nav .logo img {
                 height: 60px;
             }
             nav a {
-                margin: 10px 0;
-                font-size: 1.2rem;
+                font-size: 1.5rem; /* Adjust tab size for mobile */
+                margin: 5px 0; /* Add spacing between tabs */
+                
             }
-
-            .hero h1 {
-                font-size: 2rem; /* Smaller font size for mobile */
-                white-space: normal; /* Allow wrapping */
-                overflow: visible; /* Ensure text is not clipped */
-                border: none; /* Remove typing effect border */
-                animation: none; /* Disable typing animation for mobile */
-                display: block; /* Ensure it renders properly */
-                color: #33CC33; /* Ensure consistent color */
-                margin: 10px 0; /* Add spacing around the text */
-            }
-
-            .hero p {
-                font-size: 1rem; /* Adjust font size for mobile readability */
-                 margin: 10px 0; /* Add spacing */
+             .hero h1 {
+                font-size: 2.2rem; /* Smaller size for mobile */
+                white-space: normal; /* Allow text wrapping */
+                overflow: visible; /* Ensure no hidden text */
+                border: none; /* Remove typing effect */
+                animation: none; /* Disable typing animation */
+                margin-bottom: 10px; /* Add spacing below the heading */
+                text-align: center; /* Center-align the text */
              }
+             .hero p {
+                font-size: 1.2rem; /* Adjust size of "Community Solar" line */
+                margin-top: 10px; /* Add spacing above the line */
+                text-align: center; /* Center-align the text */
+            }
+            .hero p {
+                margin-top: 20px; /* Space above the line */
+                font-size: 1.2rem; /* Adjust font size */
+                text-align: center; /* Ensure proper alignment */
+            }
 
             .hero {
-                padding: 20px; /* Adjust padding for mobile */
-                text-align: center; /* Center align the text */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px; /* Add padding around content */
             }
 
             .hero img {
-                width: 250px;
-                margin-top: 10px;
+                width: 250px; /* Adjust size of robot image */
+                margin-top: 20px; /* Add space above the robot */
             }
-
+            
             .signup-section {
                 padding: 20px;
             }
