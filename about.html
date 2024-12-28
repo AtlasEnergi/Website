@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Atlas</title>
+    <link rel="icon" type="image/png" href="Atlas Energi Submark Logo 2.png">
+    <style>
+        @font-face {
+            font-family: 'Kenyan Coffee';
+            src: url('./kenyan coffee rg.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Kenyan Coffee';
+            src: url('./kenyan coffee bd.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        }
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: black;
+            color: #33CC33;
+            font-family: 'Roboto', sans-serif;
+            text-shadow: 0 0 5px #33CC33;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px dashed #33CC33;
+            background: black;
+        }
+        nav a {
+            color: #33CC33;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Kenyan Coffee', sans-serif;
+            font-size: 2rem;
+        }
+        nav a.join {
+            font-size: 2.5rem;
+            background-color: rgba(51, 204, 51, 0.2);
+            padding: 5px 15px;
+            border-radius: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav a.join:hover {
+            background-color: rgba(51, 204, 51, 0.5);
+            color: black;
+        }
+        nav .logo img {
+            height: 100px;
+            cursor: pointer;
+        }
+
+        /* About Section */
+        .about-section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            border: 2px dashed #33CC33;
+            border-radius: 10px;
+            background-color: rgba(51, 204, 51, 0.1);
+        }
+        .about-section h1 {
+            font-family: 'Kenyan Coffee', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .about-section h2 {
+            font-family: 'Kenyan Coffee', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+            text-decoration: underline;
+        }
+        .about-section p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            font-weight: lighter;
+        }
+
+        .profile-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .profile-image {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: opacity 0.3s;
+}
+
+.profile-image:hover {
+    content: url('Jon Meyers PFP.png');
+}
+
+.profile-image:hover {
+    background-image: url('Jon Meyers PFP 2.png');
+}
+        .profile-image:hover {
+            filter: grayscale(0);
+        }
+        .name-tag {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            font-family: 'Kenyan Coffee', sans-serif;
+            font-weight: lighter;
+            color: #33CC33;
+        }
+
+        .profile-text {
+            display: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .profile-container.clicked .profile-text {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px dashed #33CC33;
+            font-family: 'Roboto', sans-serif;
+        }
+        footer a {
+            color: #33CC33;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        footer a:hover {
+            color: #2EB82E;
+        }
+        footer .copyright {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileContainer = document.querySelector('.profile-container');
+            profileContainer.addEventListener('click', () => {
+                profileContainer.classList.toggle('clicked');
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="Atlas Energi Logo 2.png" alt="Atlas Energi Logo">
+            </a>
+        </div>
+        <div>
+            <a href="about.html" class="active">About</a>
+            <a href="learn.html">Learn</a>
+            <a href="join.html" class="join">Join</a>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2>Our Mission</h2>
+        <p>In Greek mythology, Atlas is condemned to carry the world on his shoulders.</p>
+        <p>Our vision for Atlas is to be the company that bears the weight of the world's challenges for the betterment of society.</p>
+        
+        <h2>About the Team</h2>
+        <div class="profile-container">
+            <img src="Jon Meyers PFP 2.png" alt="Jon Meyers" class="profile-image">
+            <div class="name-tag">Jon Meyers</div>
+            <div class="profile-text">
+                <p>I am a college senior studying marketing at the University at Buffalo. Over the years, I’ve had the opportunity to work with a few startups, gaining hands-on experience in building and scaling businesses.</p>
+                <p>Since a young age, I have been deeply passionate about sustainability and making the world a better place. I believe I was put on this Earth to do something great, leaving behind a legacy that rivals the greats of history and drives substantial, positive change in the world.</p>
+                <p>While I may not be the best at any one thing, my strength lies in my problem-solving skills and work ethic, allowing me to figure out solutions to any challenge. This mindset defines my approach to building Atlas and tackling the complex issues we face today.</p>
+                <p>My vision for the team is to create an environment where everyone is excited about their work. Guided by the motto, "Work hard, play hard," I envision a team of passionate individuals who excel at what they do while continuously learning and expanding their capabilities. At the same time, we prioritize enjoying our free time and fostering a strong sense of camaraderie.</p>
+                <p>Looking ahead, my goal for Atlas is to push the boundaries of environmental sustainability by exploring new technologies. In addition, I aim to develop high-speed and maglev rail systems to transform transportation, revitalize the U.S. economy, and reconnect our cities and culture. On the creative side, I dream of establishing Pretzel Day Productions, an Atlas company dedicated to producing engaging TV shows and movies.</p>
+                <p>Beyond work, I enjoy hiking, running, fishing, boating, and traveling. I find the world to be a beautiful place, and I am committed to making it even better. While some billionaires are looking to other planets to solve humanity’s problems, I firmly believe that we can and must address our challenges here on Earth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Questions?</p>
+        <p>Call/Text (716)229-0539 Email jonmeyers215@gmail.com</p>
+        <p><a href="#">About</a> | <a href="#">Privacy</a></p>
+        <p class="copyright">&copy; 2024 Atlas Energi - All Rights Reserved</p>
+    </footer>
+</body>
+</html>
