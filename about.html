@@ -106,7 +106,7 @@
             text-align: center;
         }
         .profile-image {
-    width: 200px;
+    width: 100px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -140,25 +140,49 @@
             display: block;
         }
 
-        /* Footer */
-        footer {
+       /* Footer */
+       footer {
             text-align: center;
             padding: 20px;
             border-top: 1px dashed #33CC33;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', sans-serif; /* Change font to Roboto */
+            font-size: medium;
+            font-weight: lighter;
         }
-        footer a {
+
+            footer a {
             color: #33CC33;
-            text-decoration: underline;
+            text-decoration: underline; /* Add underline for better visibility */
             font-weight: bold;
         }
+
         footer a:hover {
-            color: #2EB82E;
+            color: #2EB82E; /* Slightly lighter green on hover */
         }
+
         footer .copyright {
             margin-top: 10px;
             font-size: 0.9rem;
+            color: #33CC33;
+            text-shadow: none; /* Remove text shadow for better clarity */
         }
+
+        .copyright {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #33CC33;
+            text-shadow: 0 0 5px #33CC33;
+        }
+
+        /* Browser Compatibility */
+        input, button {
+            -webkit-appearance: none; /* Remove default styling for Safari */
+            -moz-appearance: none; /* Remove default styling for Firefox */
+            appearance: none; /* Remove default styling for other browsers */
+        }
+    </style>
+</head>
+<body>
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
